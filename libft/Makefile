@@ -64,24 +64,30 @@ SRC=ft_memset.c \
 	ft_lstdel.c \
 	ft_lstiter.c \
 	ft_lstnew.c \
-	ft_lstmap.c 
+	ft_lstmap.c \
+	ft_lstappend.c \
+	get_next_line.c
 
 
 OBJ=$(SRC:.c=.o)
 
 $(NAME):
-	$(CC) -c $(SRC)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@$(CC) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "****** LIBFT COMPILATE ******"
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
+	@echo "****** LIBFT DELETED *.o ******"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "****** LIBFT DELETED ******"
 
 re: fclean all
+	@echo "****** LIBFT RECOMPILATE ******"
 
 .PHONY: clean fclean
