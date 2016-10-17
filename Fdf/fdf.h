@@ -18,9 +18,12 @@
 # include "sources/libft/libft.h"
 typedef struct		s_mlx
 {
+  int   bpp;
+  int   size_line;
   void  *mlx;
   void  *win;
   void  *img;
+  char  *data;
   char  *filename;
 }                 t_mlx
 

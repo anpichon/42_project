@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void ft_print_line(int x0, int x1, int y0, int y1, t_fdf *info)
+void print_line(int x0, int x1, int y0, int y1, t_fdf *info)
 {
     info->dx = abs(x1-x0);
     info->dy = abs(y1-y0);
@@ -21,7 +21,7 @@ void ft_print_line(int x0, int x1, int y0, int y1, t_fdf *info)
     info->err = (dx>dy ? dx : -dy);
     while (x0 != x1 && y0 != y1)
     {
-      mlx_print_pixel(x0, y0);
+      mlx_print_pixel(x0, y0, &info);
       e2 = err;
       if (e2 > -dx)
       {
@@ -36,6 +36,7 @@ void ft_print_line(int x0, int x1, int y0, int y1, t_fdf *info)
     }
 }
 
-void ft_mlx_print_pixel(/* arguments */) {
-  /* code */
+void mlx_print_pixel(int x, int y, t_fdf info)
+{
+  info->m->
 }
