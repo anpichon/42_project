@@ -14,10 +14,19 @@
 # define FDF_H
 # define WIDTH 1280
 # define HEIGHT 720
-# include <mlx.h>
+# include "sources/minilibx/mlx.h"
 # include "sources/libft/libft.h"
 typedef struct		s_mlx
 {
+  int   x;
+  int   y;
+  int   z;
+  int   zoom;
+
+  int   R;
+  int   G;
+  int   B;
+  int   endian;
   int   bpp;
   int   size_line;
   void  *mlx;
