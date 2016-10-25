@@ -12,10 +12,19 @@
 
 #ifndef FDF_H
 # define FDF_H
-# define WIDTH 1280
-# define HEIGHT 720
+# define W 1280
+# define H 720
 # include "sources/minilibx/mlx.h"
 # include "sources/libft/libft.h"
+
+typedef struct    s_line
+{
+  int x0;
+  int x1;
+  int y0;
+  int y1;
+}                t_line;
+
 typedef struct		s_mlx
 {
   int   x;
@@ -23,18 +32,18 @@ typedef struct		s_mlx
   int   z;
   int   zoom;
 
-  int   R;
-  int   G;
-  int   B;
-  int   endian;
+  int   r;
+  int   g;
+  int   b;
+  int   en;
   int   bpp;
-  int   size_line;
+  int   sl;
   void  *mlx;
   void  *win;
   void  *img;
   char  *data;
   char  *filename;
-}                 t_mlx
+}                 t_mlx;
 
 typedef struct		s_fdf
 {
@@ -45,5 +54,6 @@ typedef struct		s_fdf
   int   err;
   int   e2;
   t_mlx *m;
+  t_line *l;
 }					s_fdf;
 #endif
