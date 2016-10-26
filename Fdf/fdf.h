@@ -27,11 +27,6 @@ typedef struct    s_line
 
 typedef struct		s_mlx
 {
-  int   x;
-  int   y;
-  int   z;
-  int   zoom;
-
   int   r;
   int   g;
   int   b;
@@ -44,8 +39,17 @@ typedef struct		s_mlx
   char  *data;
   char  *filename;
 }                 t_mlx;
-
-typedef struct		s_fdf
+typedef struct    s_fdf
+{
+  int   x;
+  int   y;
+  int   z;
+  int   zoom;
+  t_line  *l;
+  t_mlx   *m;
+  t_bress *b;
+}                 t_fdf;
+typedef struct		s_bress
 {
   int   dx;
   int   dy;
@@ -53,7 +57,5 @@ typedef struct		s_fdf
   int   sy;
   int   err;
   int   e2;
-  t_mlx *m;
-  t_line *l;
-}					s_fdf;
+}					t_bress;
 #endif

@@ -14,15 +14,11 @@
 
 void			new_img(t_fdf *e)
 {
-	e->img = mlx_new_image(e->mlx, W, H);
-	e->data_img = mlx_get_data_addr(e->img, &(e->bpp), &(e->sl), &(e->en));
-	if (e->iso == 1 && e->para == 0)
-		tab_to_iso(e);
-	else if (e->iso == 0 && e->para == 1)
-		tab_to_para(e);
-	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+	e->m->img = mlx_new_image(e->mlx, W, H);
+	e->m->data = mlx_get_data_addr(e->img, &(e->m->bpp), &(e->m->sl), &(e->m->en));
+	mlx_put_image_to_window(e->m->mlx, e->m->win, e->m->img, 0, 0);
 	//display_menu(e);
-	mlx_destroy_image(e->mlx, e->img);
+	mlx_destroy_image(e->m->mlx, e->m->img);
 }
 
 void print_line(t_fdf *info)
