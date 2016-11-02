@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anpichon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/05 07:25:48 by anpichon          #+#    #+#             */
-/*   Updated: 2016/10/05 07:25:53 by anpichon         ###   ########.fr       */
+/*   Updated: 2016/11/02 05:50:19 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,31 @@ void			new_img(t_fdf *e)
 
 void print_line(t_fdf *info)
 {
-    info->dx = abs(info->l->x1 - info->l->x0);
-    info->dy = abs(info->l->y1 - info->l->y0);
-    info->sx = info->l->x0 < info->l->x1 ? 1 : -1;
-    info->sy = info->l->y0 < info->l->y1 ? 1 : -1;
-    info->err = (info->dx > info->dy ? info->dx : -info->dy);
-    while (x0 != x1 && y0 != y1)
-    {
-      mlx_print_pixel(info->l->x0, info->l->y0, &info);
-      info->e2 = info->err;
-      if (info->e2 > -info->dx)
-      {
-        info->err -= info->dy;
-        info->l->x0 += info->sx;
-      }
-      if (info->e2 < info->dy)
-      {
-        info->err += info->dx;
-        info->l->y0 += info->sy;
-      }
-    }
+	info->dx = abs(info->l->x1 - info->l->x0);
+	info->dy = abs(info->l->y1 - info->l->y0);
+	info->sx = info->l->x0 < info->l->x1 ? 1 : -1;
+	info->sy = info->l->y0 < info->l->y1 ? 1 : -1;
+	info->err = (info->dx > info->dy ? info->dx : -info->dy);
+	while (x0 != x1 && y0 != y1)
+	{
+		mlx_print_pixel(info->l->x0, info->l->y0, &info);
+		info->e2 = info->err;
+		if (info->e2 > -info->dx)
+		{
+			info->err -= info->dy;
+			info->l->x0 += info->sx;
+		}
+		if (info->e2 < info->dy)
+		{
+			info->err += info->dx;
+			info->l->y0 += info->sy;
+		}
+	}
 }
 
 void mlx_print_pixel(int x, int y, t_fdf e)
 {
-  if (x >= 0 && y >= 0 && x < W && y < H)
+	if (x >= 0 && y >= 0 && x < W && y < H)
 	{
 		e->data_img[(info->m->size_line * y) + (4 * x) + 2] = e->r;
 		e->data_img[(info->m->size_line * y) + (4 * x) + 1] = e->g;
