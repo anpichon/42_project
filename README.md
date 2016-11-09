@@ -17,11 +17,16 @@
 
 ## Projets Réalisés
 # Libft
+				> Compiler le projet avec la commande : make
+				> Le Makefile contient les régles suivantes : clean, fclean, re
 				> Réaliser une partie des fonctions de la Lib C    
 				> Exemples : strchr, memcpy ou encore toupper    
 				> Avec des Bonus : Linked list
 
 # Fillit
+				> Compiler le projet avec la commande : make
+				> Le Makefile contient les régles suivantes : clean, fclean, re
+				> L'executable s'appel fractol : ./fillit
 				> Réaliser une variante du tétris ou du moins un algo de résolution    
 				> Mettre en paramétre du programme un fichier avec des pièces valide ou invalide    
 				> En cas de pièces invalides > Error    
@@ -36,10 +41,16 @@
 				-1 = Si il y a une erreur !
 
 # FDF
+				> Compiler le projet avec la commande : make
+				> Le Makefile contient les régles suivantes : clean, fclean, re
+				> L'executable s'appel fractol : ./fdf
 				> Prend en param une map en fichier   
 				> La map doit avoir des lignes de la même taille
 
 # Fractol
-				> Générateur de Fractal
-				6 Fractals disponible
+				> Compiler le projet avec la commande : make
+				> Le Makefile contient les régles suivantes : clean, fclean, re
+				> L'executable s'appel fractol : ./fractol 
+				> Choisir la fractal en param de 1 à 6
+				> 6 Fractals disponibles
 # By anpichon.
