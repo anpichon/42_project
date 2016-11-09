@@ -9,11 +9,11 @@
 	  - Fractol
 	  - Etc...
 
-		Vous pouvez donc :
-		 * Comprendre le code pour mieux comprendre la logique de certains projets
-		 * Vérifier la difficulté de l'école 42
-		 * Copier comme un NOOB pour rendre les projets plus vite
-		 * ETC ...
+	Vous pouvez donc :
+	 * Comprendre le code pour mieux comprendre la logique de certains projets
+	 * Vérifier la difficulté de l'école 42
+	 * Copier comme un NOOB pour rendre les projets plus vite
+	 * ETC ...
 
 ## Projets Réalisés
 # Libft
@@ -50,7 +50,7 @@
 # Fractol
 				> Compiler le projet avec la commande : make
 				> Le Makefile contient les régles suivantes : clean, fclean, re
-				> L'executable s'appel fractol : ./fractol 
+				> L'executable s'appel fractol : ./fractol
 				> Choisir la fractal en param de 1 à 6
 				> 6 Fractals disponibles
 # By anpichon.
