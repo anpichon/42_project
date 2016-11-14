@@ -1,4 +1,4 @@
-NAME =		Wolf3D
+NAME =		wolf3d
 
 CC =		@gcc
 
@@ -6,7 +6,7 @@ CFLAGS =	-Wall -Wextra -Werror -I srcs/minilibx -L srcs/minilibx -lmlx -framewor
 
 RM =		rm -f
 
-SRC =
+SRC =		srcs/main.c
 
 LFTDIR =	srcs/libft/libft.a
 
