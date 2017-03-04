@@ -2,9 +2,10 @@ NAME =		wolf3d
 
 CC =		@gcc
 
-CFLAGS =	-Wall -Wextra -Werror
+IFLAGS = 	-I/Users/anpichon/.brew/include/
+CFLAGS =	$(IFLAGS) -lSDL2 -L/Users/anpichon/.brew/lib/
 
-LIBGRAPH =	-framework OpenGL -framework SDL2
+LIBGRAPH =	-framework OpenGL
 
 RM =		rm -f
 
@@ -20,12 +21,15 @@ OBJ =		$(SRC:.c=.o)
 
 all:		$(NAME)
 
+%.o: %.c
+			$(CC) -Wall -Wextra -Werror $(IFLAGS) -o $@ -c $^
+
 $(NAME): $(OBJ)
 			@echo "\033[33mCompilate Library's...\033[0m\c"
 			@make -C srcs/libft
 			@echo "\033[32m                 [OK!]\033[0m"
 			@echo "\033[33mCompilate Project's...\033[0m\c"
-			@$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LFTDIR) $(LIBGRAPH)
+			@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFTDIR) $(LIBGRAPH)
 			@echo "\033[32m                 [OK!]\033[0m"
 
 clean:
@@ -42,4 +46,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY: 	clean fclean
+.PHONY: 	install clean fclean re

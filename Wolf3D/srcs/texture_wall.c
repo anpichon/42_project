@@ -6,15 +6,15 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:46:14 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/17 19:41:14 by                  ###   ########.fr       */
+/*   Updated: 2016/11/18 19:47:35 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-void			color(t_wolf *e)
+void	color(t_wolf *e)
 {
-	SDL_SetRenderDrawColor(e->s.ren, 254, 231, 240, 100);
+	SDL_SetRenderDrawColor(e->s.ren, 0, 255, 255, 100);
 	SDL_RenderDrawLine(e->s.ren, e->x, 0, e->x, e->r.dr_s);
 	if (e->side == 0 && e->r.dx > 0)
 		SDL_SetRenderDrawColor(e->s.ren, 240, 210, 70, 0);
@@ -29,7 +29,7 @@ void			color(t_wolf *e)
 	SDL_RenderDrawLine(e->s.ren, e->x, e->r.dr_e, e->x, H);
 }
 
-void			color2(t_wolf *e)
+void	color2(t_wolf *e)
 {
 	SDL_SetRenderDrawColor(e->s.ren, 0, 255, 255, 100);
 	SDL_RenderDrawLine(e->s.ren, e->x, 0, e->x, e->r.dr_s);

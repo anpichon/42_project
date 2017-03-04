@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 08:50:42 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/17 20:00:14 by anpichon         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:59:18 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static void	help(void)
 	die("", NULL, EXIT_FAILURE);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
-	t_wolf		e;
+	t_wolf	e;
 
 	if (ac == 1 && av && ft_memset(&e, 0, sizeof(e)))
 	{

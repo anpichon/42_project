@@ -6,13 +6,13 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 19:16:04 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/17 20:03:33 by anpichon         ###   ########.fr       */
+/*   Updated: 2016/11/21 23:46:17 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-static void				dda(t_wolf *e)
+static void			dda(t_wolf *e)
 {
 	while (e->r.hit == 0)
 	{
@@ -33,7 +33,7 @@ static void				dda(t_wolf *e)
 	}
 }
 
-static void				ray_d(t_wolf *e)
+static void			ray_d(t_wolf *e)
 {
 	if (e->r.dx < 0)
 	{
@@ -57,7 +57,7 @@ static void				ray_d(t_wolf *e)
 	}
 }
 
-static void				calcul_proj(t_wolf *e)
+static void			calcul_proj(t_wolf *e)
 {
 	if (e->side == 0)
 		e->r.pwd = (e->m.x - e->r.px + (1 - e->r.sx) / 2) / e->r.dx;
@@ -72,7 +72,7 @@ static void				calcul_proj(t_wolf *e)
 		e->r.dr_e = H - 1;
 }
 
-static void				ray_i(t_wolf *e)
+static void			ray_i(t_wolf *e)
 {
 	e->r.camx = 2 * e->x / (double)W - 1;
 	e->r.px = e->m.p_x;
@@ -98,7 +98,7 @@ void				ray(t_wolf *e)
 			ray_d(e);
 			dda(e);
 			calcul_proj(e);
-			color2(e);
+			color(e);
 		}
 		SDL_RenderPresent(e->s.ren);
 	}

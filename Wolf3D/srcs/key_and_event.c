@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 19:10:06 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/17 19:39:01 by                  ###   ########.fr       */
+/*   Updated: 2016/11/21 23:46:24 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,10 @@ void				event(t_wolf *e)
 		sdlk3(e, 0);
 	if (e->key[SDL_SCANCODE_D])
 		sdlk3(e, 1);
+	if (e->key[SDL_SCANCODE_LSHIFT])
+		e->d.ru = 0.080;
+	else
+		e->d.ru = 0.040;
 	if (e->s.ev.key.keysym.sym == SDLK_r)
 		init_game(e);
 	if (e->s.ev.type == SDL_QUIT || e->s.ev.key.keysym.sym == SDLK_ESCAPE)

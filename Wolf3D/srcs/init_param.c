@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:48:58 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/17 20:01:56 by anpichon         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:59:31 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void		map_cpy(int tmp[MH][MW], t_wolf *e)
 {
-	int			i;
-	int			j;
+	int		i;
+	int		j;
 
 	i = -1;
 	while (++i < MH)
@@ -28,7 +28,7 @@ static void		map_cpy(int tmp[MH][MW], t_wolf *e)
 
 void			map(t_wolf *e)
 {
-	static int map[22][23] = {
+	static int	map[22][23] = {
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 		{1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 		{1, 0, 0, 2, 2, 2, 2, 0, 2, 0, 2, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 1},
@@ -54,7 +54,7 @@ void			map(t_wolf *e)
 	map_cpy(map, e);
 }
 
-void				init_game(t_wolf *e)
+void			init_game(t_wolf *e)
 {
 	if (e->s.init != 1)
 	{
@@ -62,11 +62,11 @@ void				init_game(t_wolf *e)
 			die("Init SDL failure !", e, EXIT_FAILURE);
 		e->s.init = 1;
 		ft_putstr("Init SLD Success [OK]\n");
-		e->s.win = SDL_CreateWindow("Wolf3d by Anpichon", SDL_WINDOWPOS_CENTERED,
-			SDL_WINDOWPOS_CENTERED, W, H, SDL_WINDOW_OPENGL);
-			ft_putstr("Init WIN Success [OK]\n");
+		e->s.win = SDL_CreateWindow("Wolf3d anpichon", SDL_WINDOWPOS_CENTERED,
+				SDL_WINDOWPOS_CENTERED, W, H, 0);
+		ft_putstr("Init WIN Success [OK]\n");
 		e->s.ren = SDL_CreateRenderer(e->s.win, -1, SDL_RENDERER_ACCELERATED | \
-			SDL_RENDERER_PRESENTVSYNC);
+				SDL_RENDERER_PRESENTVSYNC);
 	}
 	e->m.p_x = 19;
 	e->m.p_y = 5;
@@ -75,7 +75,7 @@ void				init_game(t_wolf *e)
 	e->d.diy = 0.0;
 	e->d.plx = 0.0;
 	e->d.ply = 0.66;
-	e->d.ru = 0.070;
+	e->d.ru = 0.040;
 	e->d.rru = 0.05;
 	ft_putstr("Init PARAM_MAP Success [OK]\n");
 }

@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 09:28:17 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/17 20:02:57 by anpichon         ###   ########.fr       */
+/*   Updated: 2016/11/22 01:59:37 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct		s_sdl
 {
 	int				init;
 	SDL_Event		ev;
-	SDL_Window		*win;
 	SDL_Renderer	*ren;
+	SDL_Window		*win;
 }					t_sdl;
 
 typedef struct		s_map
@@ -82,12 +82,12 @@ typedef struct		s_wolf
 	const Uint8		*key;
 }					t_wolf;
 
-void			ray(t_wolf *e);
-void			map(t_wolf *e);
-void			event(t_wolf *e);
-void			color(t_wolf *e);
-void			color2(t_wolf *e);
-void			init_game(t_wolf *e);
-void			die(char *str, t_wolf *e, int exit_code);
+void				ray(t_wolf *e);
+void				map(t_wolf *e);
+void				event(t_wolf *e);
+void				color(t_wolf *e);
+void				color2(t_wolf *e);
+void				init_game(t_wolf *e);
+void				die(char *str, t_wolf *e, int exit_code);
 
 #endif
