@@ -12,6 +12,7 @@ RM =		rm -f
 SRC =		srcs/main.c \
 			srcs/init_param.c \
 			srcs/texture_wall.c \
+			srcs/texture_wall2.c \
 			srcs/key_and_event.c \
 			srcs/position_and_ray.c
 
@@ -46,4 +47,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY: 	install clean fclean re
+.PHONY: 	clean fclean re

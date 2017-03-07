@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:48:58 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/22 01:59:31 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 08:54:12 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,22 @@ void			map(t_wolf *e)
 	map_cpy(map, e);
 }
 
+static void		load_text(t_wolf *e)
+{
+	if ((e->s.wall = SDL_LoadBMP("srcs/texture/stone.bmp")))
+		ft_putstr("Init Wall TEXTURE Success [OK]\n");
+	else
+		die("Init Wall TEXTURE failure !", e, EXIT_FAILURE);
+	if ((e->s.floor = SDL_LoadBMP("srcs/texture/floor.bmp")))
+		ft_putstr("Init Floor TEXTURE Success [OK]\n");
+	else
+		die("Init Floor TEXTURE failure !", e, EXIT_FAILURE);
+	if ((e->s.ceil = SDL_LoadBMP("srcs/texture/ceiling.bmp")))
+		ft_putstr("Init Ceiling TEXTURE Success [OK]\n");
+	else
+		die("Init Ceiling TEXTURE failure !", e, EXIT_FAILURE);
+}
+
 void			init_game(t_wolf *e)
 {
 	if (e->s.init != 1)
@@ -62,11 +78,11 @@ void			init_game(t_wolf *e)
 			die("Init SDL failure !", e, EXIT_FAILURE);
 		e->s.init = 1;
 		ft_putstr("Init SLD Success [OK]\n");
-		e->s.win = SDL_CreateWindow("Wolf3d anpichon", SDL_WINDOWPOS_CENTERED,
+		e->s.win = SDL_CreateWindow("Wolf3D - anpichon", SDL_WINDOWPOS_CENTERED,
 				SDL_WINDOWPOS_CENTERED, W, H, 0);
 		ft_putstr("Init WIN Success [OK]\n");
-		e->s.ren = SDL_CreateRenderer(e->s.win, -1, SDL_RENDERER_ACCELERATED | \
-				SDL_RENDERER_PRESENTVSYNC);
+		e->s.srf = SDL_GetWindowSurface(e->s.win);
+		load_text(e);
 	}
 	e->m.p_x = 19;
 	e->m.p_y = 5;

@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 08:50:42 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/22 01:59:18 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 02:11:26 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		die(char *str, t_wolf *e, int exit_code)
 {
 	if (e->s.init == 1)
 	{
-		SDL_DestroyRenderer(e->s.ren);
+		SDL_FreeSurface(e->s.srf);
 		SDL_DestroyWindow(e->s.win);
 		SDL_Quit();
 	}

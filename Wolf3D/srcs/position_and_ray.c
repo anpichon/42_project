@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 19:16:04 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/21 23:46:17 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 08:59:36 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,7 @@ static void			calcul_proj(t_wolf *e)
 		e->r.pwd = (e->m.y - e->r.py + (1 - e->r.sy) / 2) / e->r.dy;
 	e->r.lh = (int)(H / e->r.pwd);
 	e->r.dr_s = -e->r.lh / 2 + H / 2;
-	if (e->r.dr_s < 0)
-		e->r.dr_s = 0;
 	e->r.dr_e = e->r.lh / 2 + H / 2;
-	if (e->r.dr_e >= H)
-		e->r.dr_e = H - 1;
 }
 
 static void			ray_i(t_wolf *e)
@@ -98,8 +94,13 @@ void				ray(t_wolf *e)
 			ray_d(e);
 			dda(e);
 			calcul_proj(e);
-			color(e);
+			if (e->tex % 2 == 1)
+				color2(e);
+			else
+				color(e);
 		}
-		SDL_RenderPresent(e->s.ren);
+		if (e->map)
+			drawmap(e);
+		SDL_UpdateWindowSurface(e->s.win);
 	}
 }

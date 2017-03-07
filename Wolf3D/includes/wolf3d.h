@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 09:28:17 by anpichon          #+#    #+#             */
-/*   Updated: 2016/11/22 01:59:37 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 08:54:52 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@
 # define MH 22
 # define MW 23
 
-typedef struct		s_sdl
+typedef struct		s_dir
 {
-	int				init;
-	SDL_Event		ev;
-	SDL_Renderer	*ren;
-	SDL_Window		*win;
-}					t_sdl;
+	double			ru;
+	double			dix;
+	double			diy;
+	double			plx;
+	double			ply;
+	double			rru;
+	double			odx;
+	double			opx;
+}					t_dir;
 
 typedef struct		s_map
 {
@@ -58,36 +62,46 @@ typedef struct		s_ray
 	double			camx;
 }					t_ray;
 
-typedef struct		s_dir
+typedef struct		s_sdl
 {
-	double			ru;
-	double			dix;
-	double			diy;
-	double			plx;
-	double			ply;
-	double			rru;
-	double			odx;
-	double			opx;
-}					t_dir;
+	int				init;
+	SDL_Event		ev;
+	SDL_Surface		*srf;
+	SDL_Surface		*wall;
+	SDL_Surface		*floor;
+	SDL_Surface		*ceil;
+	SDL_Window		*win;
+}					t_sdl;
 
 typedef struct		s_wolf
 {
 	int				x;
+	int				tx;
+	int				rgb[3];
+	int				map;
+	int				tex;
 	t_sdl			s;
 	t_map			m;
 	t_ray			r;
 	t_dir			d;
 	short			side;
 	short			loop;
+	float			wallx;
+	double			fl[2];
+	double			weight;
 	const Uint8		*key;
 }					t_wolf;
 
-void				ray(t_wolf *e);
 void				map(t_wolf *e);
-void				event(t_wolf *e);
+void				ray(t_wolf *e);
 void				color(t_wolf *e);
+void				event(t_wolf *e);
 void				color2(t_wolf *e);
+void				drawmap(t_wolf *e);
 void				init_game(t_wolf *e);
+void				drawpoint(t_wolf *e, int x, int y);
 void				die(char *str, t_wolf *e, int exit_code);
+void				setcolor(t_wolf *e, int r, int g, int b);
+void				drawline(t_wolf *e, int x, int y1, int y2);
 
 #endif
