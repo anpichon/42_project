@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:48:58 by anpichon          #+#    #+#             */
-/*   Updated: 2017/03/07 08:54:12 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 10:20:25 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void			init_game(t_wolf *e)
 		e->s.win = SDL_CreateWindow("Wolf3D - anpichon", SDL_WINDOWPOS_CENTERED,
 				SDL_WINDOWPOS_CENTERED, W, H, 0);
 		ft_putstr("Init WIN Success [OK]\n");
+		SDL_SetWindowIcon(e->s.win, SDL_LoadBMP("srcs/texture/icone.bmp"));
 		e->s.srf = SDL_GetWindowSurface(e->s.win);
 		load_text(e);
 	}

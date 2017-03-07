@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 03:02:03 by anpichon          #+#    #+#             */
-/*   Updated: 2017/03/07 07:41:20 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 10:04:15 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ static void	drawlinetexwall(t_wolf *e, int x, int y1, int y2)
 	pix = (unsigned char *)e->s.wall->pixels;
 	th = y2 - y1;
 	i = -1;
+	if (y1 < 0)
+		i = -y1 - 1;
 	while (++i < th)
 	{
-		if (y1 + i < 0 || y1 + i >= H)
-			continue ;
+		if (y1 + i >= H)
+			break ;
 		ty = (int)((float)i / (float)th * (float)e->s.wall->h);
 		index = (ty * e->s.wall->w + e->tx) * e->s.wall->format->BytesPerPixel;
 		setcolor(e, pix[index + 2], pix[index + 1], pix[index]);

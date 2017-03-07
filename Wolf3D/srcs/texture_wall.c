@@ -6,7 +6,7 @@
 /*   By: anpichon <anpichon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 18:46:14 by anpichon          #+#    #+#             */
-/*   Updated: 2017/03/07 08:48:06 by anpichon         ###   ########.fr       */
+/*   Updated: 2017/03/07 10:05:30 by anpichon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void		drawmap(t_wolf *e)
 {
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 	int		k;
 
 	i = -1;
@@ -37,7 +37,6 @@ void		drawmap(t_wolf *e)
 	k = -1;
 	while (++k != 25)
 		drawpoint(e, e->m.p_y * 5 + k % 5, e->m.p_x * 5 + k / 5);
-
 }
 
 void		drawpoint(t_wolf *e, int x, int y)
@@ -55,10 +54,11 @@ void		drawpoint(t_wolf *e, int x, int y)
 
 void		drawline(t_wolf *e, int x, int y1, int y2)
 {
+	y1 = (y1 < 0) ? 0 : y1;
+	y2 = (y2 >= H) ? H - 1 : y2;
 	while (y1 < y2)
 	{
-		if (y1 >= 0 && y1 < H)
-			drawpoint(e, x, y1);
+		drawpoint(e, x, y1);
 		y1++;
 	}
 }
